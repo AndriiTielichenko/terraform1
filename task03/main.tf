@@ -16,6 +16,8 @@ resource "azurerm_storage_account" "this" {
   location                 = data.azurerm_resource_group.existing.location
   account_tier             = "Standard"
   account_replication_type = "GRS"
+  public_network_access_enabled = false
+  account_kind = "StorageV2"
   tags = {
     Creator = var.student_email
   }
