@@ -11,13 +11,14 @@ resource "azurerm_resource_group" "this" {
 }
 
 resource "azurerm_storage_account" "this" {
-  name                          = var.storageaccount_name
-  resource_group_name           = data.azurerm_resource_group.existing.name
-  location                      = data.azurerm_resource_group.existing.location
-  account_tier                  = "Standard"
-  account_replication_type      = "GRS"
-  public_network_access_enabled = false
-  account_kind                  = "StorageV2"
+  name                            = var.storageaccount_name
+  resource_group_name             = data.azurerm_resource_group.existing.name
+  location                        = data.azurerm_resource_group.existing.location
+  account_tier                    = "Standard"
+  account_replication_type        = "GRS"
+  public_network_access_enabled   = false
+  account_kind                    = "StorageV2"
+  allow_nested_items_to_be_public = false
   tags = {
     Creator = var.student_email
   }
